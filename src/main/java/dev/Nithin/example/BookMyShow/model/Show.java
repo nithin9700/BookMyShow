@@ -1,8 +1,6 @@
 package dev.Nithin.example.BookMyShow.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,15 +12,14 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name = "show_details")
 public class Show extends BaseModel{
-    @Column(name = "START_TIME")
     private LocalDateTime startTime;
-    @Column(name = "END_TIME")
     private LocalDateTime endTime;
     @ManyToOne
     private  Movie movie;
     @ManyToOne
     private Auditorium auditorium;
+    @OneToMany
     List<ShowSeat> showSeats;
-
 }

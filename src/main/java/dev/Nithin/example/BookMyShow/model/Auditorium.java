@@ -15,9 +15,9 @@ public class Auditorium extends BaseModel{
     private String name;
     private int capacity;
     @OneToMany
-    private List<Seat> seats;
-    @OneToMany
     private List<Show> shows;
+    @OneToMany
+    private List<Seat> seats;
     @Enumerated(EnumType.STRING)
     @ElementCollection
     private List<AuditoriumFeature> auditoriumFeatures;

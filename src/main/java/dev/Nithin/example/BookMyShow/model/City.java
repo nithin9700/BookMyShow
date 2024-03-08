@@ -4,6 +4,7 @@ package dev.Nithin.example.BookMyShow.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,10 +14,7 @@ import java.util.List;
 @Setter
 @Entity
 public class City extends BaseModel{
-    @Column(name = "NAME")
     private String name;
     @OneToMany
     private List<Theatre> theatres;
-
-
 }
