@@ -32,6 +32,7 @@ public class TicketService {
             showSeatService.saveShowSeat(seat);
         }
 
+
         startPayment(showSeatIds);
         return new Ticket();
     }
