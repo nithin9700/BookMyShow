@@ -13,28 +13,29 @@ public class CityController {
     private CityService cityService;
 
     @GetMapping("/city/{name}")
-    public ResponseEntity getCityByName(@PathVariable("name") String cityName){
+    public ResponseEntity<String> getCityByName(@PathVariable("name") String cityName){
         City savedCity = cityService.getCityByName(cityName);
-        return ResponseEntity.ok(savedCity);  // we would return cityResponseDTO
+        ResponseEntity.ok(savedCity);  // we would return cityResponseDTO
+        return ResponseEntity.ok("City Saved SuccessFullt");
     }
 
     @PostMapping("/city")
-    public ResponseEntity createCity(@RequestBody CityRequestDTO cityRequestDTO){
+    public ResponseEntity<String> createCity(@RequestBody CityRequestDTO cityRequestDTO){
         try{
             String cityName = cityRequestDTO.getName();
             if(cityName == null || cityName.isEmpty() || cityName.isBlank()) {
                 throw new Exception("City Name is invalid");
             }
             City savedCity = cityService.saveCity(cityName);
-            return ResponseEntity.ok(savedCity); // we would return cityResponseDTO
+            return ResponseEntity.ok("new City has been add to system"); // we would return cityResponseDTO
         }catch (Exception e){
             e.printStackTrace();
         }
-         return null;
+         return ResponseEntity.ofNullable("new City failed to add");
     }
 
     @DeleteMapping("/city/{id}")
-    public ResponseEntity deleteCity(@PathVariable("id") int cityId){
+    public ResponseEntity<Boolean> deleteCity(@PathVariable("id") int cityId){
         boolean isDeleted = cityService.deleteCity(cityId);
         return ResponseEntity.ok(isDeleted);
     }

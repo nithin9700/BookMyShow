@@ -6,6 +6,7 @@ import dev.sandeep.BookMyShow.repository.TheatreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,11 +23,10 @@ public class TheatreService {
         Theatre savedTheatre = theatreRepository.save(theatre);
 
         City city = cityService.getCityById(cityId);
-        List<Theatre> theatres = city.getTheatres();
+        List<Theatre> theatres = city.getTheatres() == null ? new ArrayList<>() : city.getTheatres();
         theatres.add(savedTheatre);
         city.setTheatres(theatres);
         cityService.saveCity(city);
-
         return savedTheatre;
     }
 
