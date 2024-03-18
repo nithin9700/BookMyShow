@@ -22,10 +22,4 @@ public class TicketController {
                 ticketService.bookTicket(bookTicketRequestDTO.getShowSeatIds(), bookTicketRequestDTO.getUserId())
         );
     }
-
-    @GetMapping("/hello")
-    public ResponseEntity greet(){
-        String greet = ticketService.greet();
-        return ResponseEntity.ok(greet);
-    }
 }

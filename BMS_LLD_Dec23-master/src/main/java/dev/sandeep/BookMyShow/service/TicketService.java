@@ -31,8 +31,6 @@ public class TicketService {
             seat.setShowSeatStatus(ShowSeatStatus.LOCKED);
             showSeatService.saveShowSeat(seat);
         }
-
-
         startPayment(showSeatIds);
         return new Ticket();
     }
@@ -41,8 +39,4 @@ public class TicketService {
         return true;
     }
 
-
-    public String greet(){
-        return "HELLOWORLD";
-    }
 }
