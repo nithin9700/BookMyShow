@@ -23,6 +23,7 @@ public class AuditoriumController {
         String theatreName = auditoriumRequestDTO.getTheatre();
         int capacity = auditoriumRequestDTO.getCapacity();
         List<AuditoriumFeature> list = auditoriumRequestDTO.getAuditoriumFeatures();
-        return null;
+        auditoriumService.saveauditorium(auditoriumName,list,capacity);
+        return ResponseEntity.ok("Successfully");
     }
 }

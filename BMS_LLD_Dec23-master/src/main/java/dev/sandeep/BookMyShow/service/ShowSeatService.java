@@ -1,5 +1,6 @@
 package dev.sandeep.BookMyShow.service;
 
+import dev.sandeep.BookMyShow.model.Show;
 import dev.sandeep.BookMyShow.model.ShowSeat;
 import dev.sandeep.BookMyShow.repository.ShowSeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,8 @@ public class ShowSeatService {
 
     public ShowSeat saveShowSeat(ShowSeat seat){
         return showSeatRepository.save(seat); // save() -> upsert, means insert and update both
+    }
+    public Show getShow(int showSeatId){
+        return showSeatRepository.findAllById(showSeatId);
     }
 }

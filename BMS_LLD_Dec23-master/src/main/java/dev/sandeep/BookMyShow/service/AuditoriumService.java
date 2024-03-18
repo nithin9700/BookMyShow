@@ -15,7 +15,7 @@ public class AuditoriumService {
     private AuditoriumRepository auditoriumRepository;
 
     public Auditorium getAuditoriumByName(String auditoriumName){
-        Auditorium auditorium = auditoriumRepository.findauditoriumByName(auditoriumName);
+        Auditorium auditorium = auditoriumRepository.findAuditoriumByName(auditoriumName);
         return auditorium;
     }
 
@@ -24,10 +24,9 @@ public class AuditoriumService {
     }
 
     public Auditorium saveauditorium(String auditoriumName, List<AuditoriumFeature> auditoriumFeatureList,
-                                     int capacity, List<Seat> seatList){
+                                     int capacity){
         Auditorium auditorium = new Auditorium();
         auditorium.setCapacity(capacity);
-        auditorium.setSeats(seatList);
         auditorium.setName(auditoriumName);
         auditorium.setAuditoriumFeatures(auditoriumFeatureList);
         return auditoriumRepository.save(auditorium);

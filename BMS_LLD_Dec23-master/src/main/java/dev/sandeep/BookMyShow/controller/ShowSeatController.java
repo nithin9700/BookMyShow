@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ShowSeatController {
-    @Autowired
-    private ShowSeatService showSeatService;
+  //  @Autowired
+//    private ShowSeatService showSeatService;
 
 }

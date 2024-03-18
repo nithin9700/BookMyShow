@@ -10,14 +10,13 @@ import org.springframework.stereotype.Service;
 public class SeatService {
     @Autowired
     private SeatRepository seatRepository;
-    private SeatService seatService;
-    public void createMovie(String seatNumber, SeatType seatType, SeatStatus seatStatus){
+    public void createSeat(String seatNumber){
         Seat seat = new Seat();
         seat.setSeatNumber(seatNumber);
-        seat.setSeatType(seatType);
-        seat.setStatus(seatStatus);
+        seat.setSeatType(seat.getSeatType());
+        seat.setStatus(seat.getStatus());
     }
     public Seat findMovie(String seatNumber){
-        return seatRepository.findSeatByName(seatNumber);
+        return seatRepository.findSeatBySeatNumber(seatNumber);
     }
 }
